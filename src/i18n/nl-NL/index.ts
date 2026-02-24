@@ -1,3 +1,7 @@
+import { overviewPage } from './overviewPage';
+import { routesNames } from './routesNames';
+
 export default {
-    testMsg: 'Testbericht in Nederlands'
+  ...routesNames,
+  ...overviewPage,
 };
