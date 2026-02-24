@@ -25,13 +25,15 @@ $info: #31ccec;
 $warning: #f2c037;
 
 body.body--light,
-.body--light .q-toolbar {
+.body--light .q-toolbar,
+.body--light .q-header {
     background-color: #fff;
     color: #1e1e1e;
 }
 
 body.body--dark,
-.body--dark .q-toolbar {
+.body--dark .q-toolbar,
+.body--dark .q-header {
     background-color: #1e1e1e;
     color: #fff;
 }
