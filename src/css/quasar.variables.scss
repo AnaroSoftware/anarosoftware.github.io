@@ -27,13 +27,21 @@ $warning: #f2c037;
 body.body--light,
 .body--light .q-toolbar,
 .body--light .q-header {
-    background-color: #fff;
-    color: #1e1e1e;
+  background-color: #fff;
+  color: #1e1e1e;
+
+  .q-card {
+    border: 1px solid #1e1e1e;
+  }
 }
 
 body.body--dark,
 .body--dark .q-toolbar,
 .body--dark .q-header {
-    background-color: #1e1e1e;
-    color: #fff;
+  background-color: #1e1e1e;
+  color: #fff;
+
+  .q-card {
+    border: 1px solid #fff;
+  }
 }

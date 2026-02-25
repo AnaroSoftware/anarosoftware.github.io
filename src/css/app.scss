@@ -1,1 +1,17 @@
+@use 'sass:map';
+@use 'sass:meta';
+
 // app global css in SCSS form
+* {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+$font-weights: (100, 300, 400, 500, 700, 900);
+
+@each $weight in $font-weights {
+  .font-#{$weight} {
+    font-weight: $weight !important;
+  }
+}
