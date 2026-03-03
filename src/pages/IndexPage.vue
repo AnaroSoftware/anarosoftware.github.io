@@ -1,8 +1,8 @@
 <template>
-  <q-page :style-fn="layoutFn" class="q-pa-md">
-    <entry-point />
-    <our-services />
-  </q-page>
+  <q-page :style-fn="layoutFn" >
+        <entry-point />
+        <our-services />
+      </q-page>
 </template>
 
 <script setup lang="ts">

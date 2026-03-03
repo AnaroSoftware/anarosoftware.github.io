@@ -19,7 +19,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container class="q-pa-lg">
+    <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
