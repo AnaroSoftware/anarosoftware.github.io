@@ -1,8 +1,9 @@
 <template>
-    <q-card flat bordered class="card">
+    <q-card flat bordered class="card" :class="inverseDark ? 'inverse-dark-card' : ''">
         <q-card-section class="row items-center justify-start q-pb-sm">
-            <q-icon :name="icon" color="primary" size="2.5rem" />
+            <q-icon v-if="icon" :name="icon" color="primary" size="2.5rem" />
             <h2 class="text-h5 q-pl-md font-700">{{ title }}</h2>
+            <slot name="title-right" />
         </q-card-section>
 
         <q-card-section class="q-pt-xs">
@@ -14,10 +15,9 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{
-    title: string;
-    icon: string;
-}>();
+import type { CardComponentType } from 'src/utils/types';
+
+defineProps<CardComponentType>();
 </script>
 
 <style lang="scss" scoped>
