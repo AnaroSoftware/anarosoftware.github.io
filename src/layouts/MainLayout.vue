@@ -19,7 +19,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container class="q-pa-lg">
+    <q-page-container class="no-padding">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -71,3 +71,9 @@ onMounted(() => {
   locale.value = configuredLanguage || 'en-US';
 });
 </script>
+
+<style lang="scss" scoped>
+.no-padding {
+  padding: 0 !important;
+}
+</style>
