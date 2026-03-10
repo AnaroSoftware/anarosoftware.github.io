@@ -59,9 +59,9 @@ const props = withDefaults(
 const FONT_SIZE = 14;
 const COL_GAP = 10;
 const ROW_GAP = 20;
-const RADIUS = 120;
+const RADIUS = 180;
 const COLOR_DEFAULT = '#d0d0d0';
-const COLOR_LIT: [number, number, number] = [255, 140, 0];
+const COLOR_LIT: [number, number, number] = [255, 135, 1];
 
 // --- Refs & mutable state ---
 const canvasRef = ref<HTMLCanvasElement | null>(null);
@@ -81,7 +81,7 @@ let expandedPoly: [number, number][] = [];
 // Converts ShapePoint[] + canvas dimensions into a flat array of pixel coords.
 // Sharp points emit one vertex; smooth points emit BEZIER_STEPS vertices along
 // the quadratic bezier from the previous point through cx/cy to x/y.
-function buildExpandedPoly(canvasW: number, canvasH: number): void {
+const buildExpandedPoly = (canvasW: number, canvasH: number): void => {
   const points = props.shapePoints;
   const result: [number, number][] = [];
 
@@ -116,7 +116,7 @@ function buildExpandedPoly(canvasW: number, canvasH: number): void {
 }
 
 // --- Helpers ---
-function buildGrid(canvas: HTMLCanvasElement): void {
+const buildGrid = (canvas: HTMLCanvasElement): void => {
   const cols = Math.ceil(canvas.width / COL_GAP);
   // Add extra rows to ensure characters fill all the way to the bottom edge
   const rows = Math.ceil(canvas.height / ROW_GAP) + 2;
@@ -133,7 +133,7 @@ function buildGrid(canvas: HTMLCanvasElement): void {
   }
 }
 
-function resize(): void {
+const resize = (): void => {
   const canvas = canvasRef.value;
   if (canvas === null || ctx === null) return;
 
@@ -158,7 +158,7 @@ function resize(): void {
 
 const lerp = (a: number, b: number, t: number): number => a + (b - a) * t;
 
-function isInsidePolygon(px: number, py: number): boolean {
+const isInsidePolygon = (px: number, py: number): boolean => {
   const poly = expandedPoly;
   let inside = false;
 
@@ -179,7 +179,7 @@ const DEFAULT_R = parseInt(COLOR_DEFAULT.slice(1, 3), 16);
 const DEFAULT_G = parseInt(COLOR_DEFAULT.slice(3, 5), 16);
 const DEFAULT_B = parseInt(COLOR_DEFAULT.slice(5, 7), 16);
 
-function draw(): void {
+const draw = (): void => {
   const canvas = canvasRef.value;
   if (canvas === null || ctx === null) return;
 
@@ -212,7 +212,7 @@ function draw(): void {
 }
 
 // --- Mouse / Touch ---
-function onMouseMove(e: MouseEvent): void {
+const onMouseMove = (e: MouseEvent): void => {
   const canvas = canvasRef.value;
   if (canvas === null) return;
   const rect = canvas.getBoundingClientRect();
@@ -220,12 +220,12 @@ function onMouseMove(e: MouseEvent): void {
   mouse.y = e.clientY - rect.top;
 }
 
-function onMouseLeave(): void {
+const onMouseLeave = (): void => {
   mouse.x = -9999;
   mouse.y = -9999;
 }
 
-function onTouchMove(e: TouchEvent): void {
+const onTouchMove = (e: TouchEvent): void => {
   const canvas = canvasRef.value;
   if (canvas === null) return;
   const touch = e.touches[0];

@@ -1,21 +1,22 @@
 <template>
-    <section style="position: relative; overflow: hidden; margin: 0; padding: 0; height: fit-content;">        
-    <BinaryBackground :shape-points="backgroundPoints"/>
+    <section style="position: relative; overflow: hidden; margin: 0; padding: 0; height: fit-content;">
+        <BinaryBackground :shape-points="backgroundPoints" />
         <div style="position: relative; z-index: 1;">
             <div class="page">
-                <h1 class="page-title text-h2 q-pb-sm">{{ t(`${routePrefix}_ourServicesPt1`) }} <span class="text-primary">{{
-                    t(`${routePrefix}_ourServicesPt2`) }}</span>
+                <h1 class="page-title text-h2 q-pb-sm">{{ t(`${routePrefix}_ourServicesPt1`) }} <span
+                        class="text-primary">{{
+                            t(`${routePrefix}_ourServicesPt2`) }}</span>
                 </h1>
 
                 <div class="cards-grid">
-                    <CardComponent v-for="(card, index) in cards" :key="index" :title="t(`${routePrefix}_${card.title}`)"
-                        :icon="card.icon">
+                    <CardComponent v-for="(card, index) in cards" :key="index"
+                        :title="t(`${routePrefix}_${card.title}`)" :icon="card.icon">
                         {{ t(`${routePrefix}_${card.description}`) }}
                     </CardComponent>
                 </div>
 
-                <q-btn color="primary" unelevated rounded no-caps size="md" class="q-mt-xl q-px-lg" icon-right="arrow_forward"
-                    :label="t(`${routePrefix}_servicesBtn`)" />
+                <q-btn color="primary" unelevated rounded no-caps size="md" class="q-mt-xl q-px-lg"
+                    icon-right="arrow_forward" :label="t(`${routePrefix}_servicesBtn`)" />
             </div>
         </div>
     </section>
@@ -54,10 +55,10 @@ const cards = [
 ];
 
 const backgroundPoints: ShapePoint[] = [
-  { type: 'sharp',  x: 0.50, y: 0.00 },  // picks up exactly where hero left off
-  { type: 'sharp',  x: 1.00, y: 0.00 },  // top-right
-  { type: 'sharp',  x: 1.00, y: 0.40 },  // right side, cuts off halfway down
-  { type: 'smooth', x: 0.50, y: 0.00, cx: 0.75, cy: 0.40 }
+    { type: 'sharp', x: 0.54, y: 0.00 },  // picks up exactly where hero left off
+    { type: 'sharp', x: 1.00, y: 0.00 },  // top-right
+    { type: 'sharp', x: 1.00, y: 0.40 },  // right side, cuts off halfway down
+    { type: 'smooth', x: 0.54, y: 0.00, cx: 0.95, cy: 0.40 }
 ];
 </script>
 
