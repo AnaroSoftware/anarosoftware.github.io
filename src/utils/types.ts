@@ -6,4 +6,5 @@ export interface CardComponentType {
   icon?: string | undefined;
   description?: string;
   inverseDark?: boolean;
+  alwaysLight?: boolean;
 }

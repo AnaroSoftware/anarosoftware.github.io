@@ -6,6 +6,12 @@
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-optical-sizing: auto;
+
+  h1,
+  h1 * {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bold;
+  }
 }
 
 $font-weights: (100, 300, 400, 500, 700, 900);
@@ -14,4 +20,12 @@ $font-weights: (100, 300, 400, 500, 700, 900);
   .font-#{$weight} {
     font-weight: $weight !important;
   }
+}
+
+// Globally disable default styling for the active tabs
+.q-tab__indicator {
+  background: none !important;
+}
+.q-tab--active .q-tab__indicator {
+  opacity: 0 !important;
 }

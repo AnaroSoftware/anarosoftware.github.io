@@ -20,7 +20,7 @@ $dark: #1e1e1e;
 $dark-page: #1e1e1e;
 
 $positive: #21ba45;
-$negative: #c10015;
+$negative: #7b0000;
 $info: #31ccec;
 $warning: #f2c037;
 
@@ -33,6 +33,11 @@ body.body--light,
   .inverse-dark-card {
     background-color: #1e1e1e !important;
     color: #fff !important;
+  }
+
+  .always-light-card {
+    background-color: #fff !important;
+    color: #1e1e1e !important;
   }
 
   .q-card {
@@ -52,8 +57,17 @@ body.body--dark,
     color: #1e1e1e !important;
   }
 
+  .always-light-card {
+    background-color: #fff !important;
+    color: #1e1e1e !important;
+  }
+
   .q-card {
     border: 1px solid #fff;
     color: #fff;
   }
+}
+
+.text-light {
+  color: #fff;
 }

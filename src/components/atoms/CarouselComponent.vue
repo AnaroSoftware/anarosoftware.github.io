@@ -268,7 +268,7 @@ onUnmounted(() => {
             cursor: pointer;
 
             &.active {
-                background-color: #fc8701;
+                background-color: $primary;
             }
         }
     }
