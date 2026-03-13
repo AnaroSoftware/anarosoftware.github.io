@@ -13,7 +13,7 @@
                 invite.</div>
         </div>
         <q-btn rounded label="Open calendar →" color="dark" text-color="white" class="q-px-lg q-py-sm" no-caps
-            unelevated size="lg" />
+            unelevated size="lg" @click="openCalendar" />
     </div>
 </template>
 
@@ -38,6 +38,13 @@ const cards: CardComponentType[] = [
         icon: 'question_answer',
     },
 ];
+
+const openCalendar = (): void => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).Calendly.initPopupWidget({
+        url: import.meta.env.CALENDLY_URL,
+    });
+};
 </script>
 
 <style lang="scss" scoped>
