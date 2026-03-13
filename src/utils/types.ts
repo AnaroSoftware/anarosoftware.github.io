@@ -8,3 +8,10 @@ export interface CardComponentType {
   inverseDark?: boolean;
   alwaysLight?: boolean;
 }
+
+export interface QuestionType {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  question: string;
+}

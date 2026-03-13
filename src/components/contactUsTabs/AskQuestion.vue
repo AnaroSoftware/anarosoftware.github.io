@@ -1,5 +1,5 @@
 <template>
-    <q-form class="custom-form">
+    <q-form class="custom-form" @submit="handleSubmit">
         <div class="form-grid">
             <div class="column justify-between left-col">
                 <div>
@@ -15,7 +15,7 @@
         </div>
 
         <q-btn rounded label="Ask a question →" color="dark" text-color="white" class="q-px-lg q-py-sm" no-caps
-            unelevated style="align-self: flex-start" size="lg" />
+            unelevated style="align-self: flex-start" size="lg" type="submit" />
     </q-form>
 </template>
 
@@ -23,15 +23,25 @@
 import { ref } from 'vue';
 import FormInput from '../atoms/FormInput.vue';
 import { validateEmail, validatePhoneNumber } from 'src/utils/validations';
+import type { QuestionType } from 'src/utils/types';
+import { sendQuestion } from 'src/utils/api';
+import { useQuasar } from 'quasar';
 
-interface PayloadType {
-    fullName: string;
-    email: string;
-    phoneNumber: string;
-    question: string;
-}
+const $q = useQuasar();
 
-const payload = ref<PayloadType>({ fullName: '', email: '', phoneNumber: '', question: '' });
+const payload = ref<QuestionType>({ fullName: '', email: '', phoneNumber: '', question: '' });
+
+const handleSubmit = async (): Promise<void> => {
+    const { isSuccess, isError, errorMessage } = await sendQuestion(payload.value);
+
+    if (isSuccess) {
+        $q.notify({ message: 'The message has been successfully sent.', type: 'positive' });
+    }
+
+    if (isError && errorMessage) {
+        $q.notify({ message: errorMessage, type: 'negative' });
+    }
+};
 </script>
 
 <style lang="scss" scoped>
